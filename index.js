@@ -11,13 +11,109 @@ app.use(cors());
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
 
-// In-memory storage for tasks data
+// In-memory storage for tasks data with initial data
 let tasksData = {
-  items: [],
+  items: [
+    {
+      name: "Dummy Group 1",
+      tasks: [
+        {
+          task_name: "Task 1",
+          user: { id: 1, name: "Rajesh Malhotra", initials: "RM" },
+          priority: "High",
+          status: "In Progress",
+          due_date: null,
+          notes: "This is a note",
+          updated_at: null,
+          progress: 50,
+          selectedUsers: [
+            { id: 1, name: "Rajesh Malhotra", initials: "RM" },
+            { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" },
+            { id: 3, name: "Amit Sharma", initials: "AS" },
+          ],
+        },
+        {
+          task_name: "Task 2",
+          user: { id: 1, name: "Rajesh Malhotra", initials: "RM" },
+          priority: "High",
+          status: "Pending",
+          due_date: null,
+          notes: "This is a note",
+          updated_at: null,
+          progress: 50,
+          selectedUsers: [
+            { id: 1, name: "Rajesh Malhotra", initials: "RM" },
+            { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" },
+            { id: 3, name: "Amit Sharma", initials: "AS" },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Dummy Group 2",
+      tasks: [
+        {
+          task_name: "Task 1",
+          user: { id: 3, name: "Amit Sharma", initials: "AS" },
+          priority: "Low",
+          status: "In Progress",
+          due_date: null,
+          notes: "This is yet another note",
+          updated_at: null,
+          progress: 100,
+          selectedUsers: [{ id: 3, name: "Amit Sharma", initials: "AS" }],
+        },
+        {
+          task_name: "Task 2",
+          user: { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" },
+          priority: "Medium",
+          status: "Pending",
+          due_date: null,
+          notes: "This is another note",
+          updated_at: null,
+          progress: 30,
+          selectedUsers: [
+            { id: 1, name: "Rajesh Malhotra", initials: "RM" },
+            { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Completed",
+      tasks: [
+        {
+          task_name: "Add cart functionality",
+          user: { id: 3, name: "Amit Sharma", initials: "AS" },
+          priority: "Low",
+          status: "Completed",
+          due_date: null,
+          notes: "please add cart functionality to the website",
+          updated_at: null,
+          progress: 100,
+          selectedUsers: [{ id: 3, name: "Amit Sharma", initials: "AS" }],
+        },
+        {
+          task_name: "Add payment gateway",
+          user: { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" },
+          priority: "Medium",
+          status: "Completed",
+          due_date: null,
+          notes: "please add payment gateway to the website",
+          updated_at: null,
+          progress: 100,
+          selectedUsers: [
+            { id: 1, name: "Rajesh Malhotra", initials: "RM" },
+            { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" },
+          ],
+        },
+      ],
+    },
+  ],
   blankItem: {},
   serialNumberTitle: "Serial Number",
   subtotal: 0,
-  total: 0
+  total: 10,
 };
 
 // Endpoint to get all tasks data
