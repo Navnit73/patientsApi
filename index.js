@@ -22,7 +22,14 @@ let tasksData = {
 
 // Endpoint to get all tasks data
 app.get('/api/tasks', (req, res) => {
-  res.json(tasksData);
+  const { user_id, hco_id } = req.query;
+  if (user_id && hco_id) {
+    // Filter tasksData based on user_id and hco_id if needed
+    // For now, we'll just return the tasksData
+    res.json(tasksData);
+  } else {
+    res.status(400).json({ error: 'user_id and hco_id are required' });
+  }
 });
 
 // Endpoint to save tasks data
