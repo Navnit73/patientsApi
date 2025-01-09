@@ -18,7 +18,7 @@ let tasksData = {
       name: "Dummy Group 1",
       tasks: [
         {
-          task_name: "Task 1",
+          task_name: "Integrate payment method",
           user: { id: 1, name: "Rajesh Malhotra", initials: "RM" },
           priority: "High",
           status: "",
@@ -33,12 +33,12 @@ let tasksData = {
           ],
         },
         {
-          task_name: "Task 2",
+          task_name: "Impliment cart functionality",
           user: { id: 1, name: "Rajesh Malhotra", initials: "RM" },
           priority: "High",
           status: "",
           due_date: null,
-          notes: "This is a note",
+          notes: "This is a important",
           updated_at: null,
           progress: 50,
           selectedUsers: [
@@ -53,23 +53,23 @@ let tasksData = {
       name: "Dummy Group 2",
       tasks: [
         {
-          task_name: "Task 1",
+          task_name: "Book a flight ticket from india to usa",
           user: { id: 3, name: "Amit Sharma", initials: "AS" },
           priority: "Low",
           status: "",
           due_date: null,
-          notes: "This is yet another note",
+          notes: "Business class",
           updated_at: null,
           progress: 100,
           selectedUsers: [{ id: 3, name: "Amit Sharma", initials: "AS" }],
         },
         {
-          task_name: "Task 2",
+          task_name: "Ship the consignment to africa",
           user: { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" },
           priority: "Medium",
           status: "",
           due_date: null,
-          notes: "This is another note",
+          notes: "Choose fastest service",
           updated_at: null,
           progress: 30,
           selectedUsers: [
