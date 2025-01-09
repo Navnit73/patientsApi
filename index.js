@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Use CORS for cross-origin request
+// Use CORS for cross-origin requests
 app.use(cors());
 
 // Middleware to parse JSON b]
@@ -79,21 +79,19 @@ let tasksData = {
         },
       ],
     },
-  
-          {
-            "name": "Pending",
-            "tasks": []
-        },
-        {
-            "name": "In Progress",
-            "tasks": []
-        },
-        {
-            "name": "Completed",
-            "tasks": []
-        }
-      ],
+    {
+      name: "Completed",
+      tasks: [ ],
     },
+        {
+      name: "Pending",
+      tasks: [ ],
+    },
+        {
+      name: "In Progress",
+      tasks: [ ],
+    },
+ 
   ],
   blankItem: {},
   serialNumberTitle: "Serial Number",
