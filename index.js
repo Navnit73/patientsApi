@@ -107,6 +107,18 @@ let tasksData = {
             { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" },
           ],
         },
+          {
+            "name": "Pending",
+            "tasks": []
+        },
+        {
+            "name": "In Progress",
+            "tasks": []
+        },
+        {
+            "name": "Completed",
+            "tasks": []
+        }
       ],
     },
   ],
