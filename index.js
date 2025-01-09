@@ -79,34 +79,7 @@ let tasksData = {
         },
       ],
     },
-    {
-      name: "Completed",
-      tasks: [
-        {
-          task_name: "Add cart functionality",
-          user: { id: 3, name: "Amit Sharma", initials: "AS" },
-          priority: "Low",
-          status: "Completed",
-          due_date: null,
-          notes: "please add cart functionality to the website",
-          updated_at: null,
-          progress: 100,
-          selectedUsers: [{ id: 3, name: "Amit Sharma", initials: "AS" }],
-        },
-        {
-          task_name: "Add payment gateway",
-          user: { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" },
-          priority: "Medium",
-          status: "Completed",
-          due_date: null,
-          notes: "please add payment gateway to the website",
-          updated_at: null,
-          progress: 100,
-          selectedUsers: [
-            { id: 1, name: "Rajesh Malhotra", initials: "RM" },
-            { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" },
-          ],
-        },
+  
           {
             "name": "Pending",
             "tasks": []
