@@ -27,9 +27,9 @@ let tasksData = {
           updated_at: null,
           progress: 50,
           selectedUsers: [
-            { id: 1, name: "Rajesh Malhotra", initials: "RM" },
-            { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" },
-            { id: 3, name: "Amit Sharma", initials: "AS" },
+            { id: 1, name: "Rajesh Malhotra", initials: "RM" , status: "",},
+            { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" ,status: "", },
+            { id: 3, name: "Amit Sharma", initials: "AS", status: "", },
           ],
         },
         {
@@ -42,9 +42,9 @@ let tasksData = {
           updated_at: null,
           progress: 50,
           selectedUsers: [
-            { id: 1, name: "Rajesh Malhotra", initials: "RM" },
-            { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" },
-            { id: 3, name: "Amit Sharma", initials: "AS" },
+            { id: 1, name: "Rajesh Malhotra", initials: "RM", status: "", },
+            { id: 2, name: "Manjit Kaur Bajwa", initials: "MK", status: "", },
+            { id: 3, name: "Amit Sharma", initials: "AS", status: "", },
           ],
         },
       ],
