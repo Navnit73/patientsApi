@@ -1,49 +1,15 @@
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Use CORS for cross-origin requests
+// Use CORS for cross-origin request
 app.use(cors());
 
-// Middleware to parse JSON
+// Middleware to parse JSON b]
 app.use(bodyParser.json());
-
-// Coupons data
-const coupons = [
-  { name: "OPDFREE", discount_percent: 100, discount_amount: 0, group_id: [] },
-  { name: "LAB50", discount_percent: 50, discount_amount: 0, group_id: [1] },
-  { name: "NEWPT", discount_percent: 0, discount_amount: 40, group_id: [] },
-];
-
-// Endpoint to validate a coupon code
-app.post("/api/validate-coupon", (req, res) => {
-  const { couponCode } = req.body;
-  const coupon = coupons.find((c) => c.name === couponCode);
-
-  if (coupon) {
-    res.json({ valid: true, message: "Coupon is valid" });
-  } else {
-    res.status(404).json({ valid: false, error: "Invalid coupon code" });
-  }
-});
-
-// Endpoint to apply a coupon code and return its details
-app.post("/api/apply-coupon", (req, res) => {
-  const { couponCode } = req.body;
-  const coupon = coupons.find((c) => c.name === couponCode);
-
-  if (coupon) {
-    res.json({
-      coupon,
-      message: "Coupon applied successfully",
-    });
-  } else {
-    res.status(404).json({ error: "Invalid coupon code" });
-  }
-});
 
 // In-memory storage for tasks data with initial data
 let tasksData = {
@@ -61,50 +27,95 @@ let tasksData = {
           updated_at: null,
           progress: 50,
           selectedUsers: [
-            { id: 1, name: "Rajesh Malhotra", initials: "RM", status: "" },
-            { id: 2, name: "Manjit Kaur Bajwa", initials: "MK", status: "" },
-            { id: 3, name: "Amit Sharma", initials: "AS", status: "" },
+            { id: 1, name: "Rajesh Malhotra", initials: "RM" , status: "",},
+            { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" ,status: "", },
+            { id: 3, name: "Amit Sharma", initials: "AS", status: "", },
           ],
         },
         {
-          task_name: "Implement cart functionality",
+          task_name: "Impliment cart functionality",
           user: { id: 1, name: "Rajesh Malhotra", initials: "RM" },
           priority: "High",
           status: "",
           due_date: null,
-          notes: "This is important",
+          notes: "This is a important",
           updated_at: null,
           progress: 50,
           selectedUsers: [
-            { id: 1, name: "Rajesh Malhotra", initials: "RM", status: "" },
-            { id: 2, name: "Manjit Kaur Bajwa", initials: "MK", status: "" },
-            { id: 3, name: "Amit Sharma", initials: "AS", status: "" },
+            { id: 1, name: "Rajesh Malhotra", initials: "RM", status: "", },
+            { id: 2, name: "Manjit Kaur Bajwa", initials: "MK", status: "", },
+            { id: 3, name: "Amit Sharma", initials: "AS", status: "", },
           ],
         },
       ],
     },
-    // Additional groups omitted for brevity
+    {
+      name: "Dummy Group 2",
+      tasks: [
+        {
+          task_name: "Book a flight ticket from india to usa",
+          user: { id: 3, name: "Amit Sharma", initials: "AS" },
+          priority: "Low",
+          status: "",
+          due_date: null,
+          notes: "Business class",
+          updated_at: null,
+          progress: 100,
+          selectedUsers: [{ id: 3, name: "Amit Sharma", initials: "AS" }],
+        },
+        {
+          task_name: "Ship the consignment to africa",
+          user: { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" },
+          priority: "Medium",
+          status: "",
+          due_date: null,
+          notes: "Choose fastest service",
+          updated_at: null,
+          progress: 30,
+          selectedUsers: [
+            { id: 1, name: "Rajesh Malhotra", initials: "RM" },
+            { id: 2, name: "Manjit Kaur Bajwa", initials: "MK" },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Completed",
+      tasks: [ ],
+    },
+        {
+      name: "Pending",
+      tasks: [ ],
+    },
+        {
+      name: "In Progress",
+      tasks: [ ],
+    },
+ 
   ],
+  blankItem: {},
+  serialNumberTitle: "Serial Number",
   subtotal: 0,
   total: 10,
 };
 
 // Endpoint to get all tasks data
-app.get("/api/tasks", (req, res) => {
+app.get('/api/tasks', (req, res) => {
   const { user_id, hco_id } = req.query;
   if (user_id && hco_id) {
     // Filter tasksData based on user_id and hco_id if needed
+    // For now, we'll just return the tasksData
     res.json(tasksData);
   } else {
-    res.status(400).json({ error: "user_id and hco_id are required" });
+    res.status(400).json({ error: 'user_id and hco_id are required' });
   }
 });
 
 // Endpoint to save tasks data
-app.post("/api/tasks", (req, res) => {
+app.post('/api/tasks', (req, res) => {
   const newData = req.body;
   tasksData = newData;
-  res.status(201).json({ message: "Data saved successfully", data: tasksData });
+  res.status(201).json({ message: 'Data saved successfully', data: tasksData });
 });
 
 // Start the server
