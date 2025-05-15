@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
+const { v4: uuidv4 } = require('uuid');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -114,8 +114,19 @@ app.get('/api/tasks', (req, res) => {
 // Endpoint to save tasks data
 app.post('/api/tasks', (req, res) => {
   const newData = req.body;
+   newData.items.forEach(group => {
+    // Generate group ID if missing
+    if (!group.id) group.id = uuidv4();
+    
+    // Generate task IDs if missing
+    group.tasks.forEach(task => {
+      if (!task.id) task.id = uuidv4();
+    });
+  });
+
   tasksData = newData;
   res.status(201).json({ message: 'Data saved successfully', data: tasksData });
+
 });
 
 // Start the server
